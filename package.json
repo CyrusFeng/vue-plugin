@@ -1,0 +1,24 @@
+{
+  "name": "vue-plugin",
+  "version": "0.0.1",
+  "description": "vue插件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/txIntelligence/vue-plugin.git"
+  },
+  "keywords": [
+    "vue",
+    "ui",
+    "plugin"
+  ],
+  "author": "sizeof",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/txIntelligence/vue-plugin/issues"
+  },
+  "homepage": "https://github.com/txIntelligence/vue-plugin#readme"
+}
