@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/txIntelligence/vue-plugin/issues"
   },
-  "homepage": "https://github.com/txIntelligence/vue-plugin#readme"
+  "homepage": "https://github.com/txIntelligence/vue-plugin#readme",
+  "dependencies": {
+    "vue": "^2.5.21"
+  }
 }
