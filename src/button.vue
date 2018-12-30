@@ -59,7 +59,7 @@
         font-size: var(--font-size);
         padding: 0 1em;
         border-radius: var(--border-radius);
-        border: 1px solid var(--border-color);
+        border: var(--border-width) solid var(--border-color);
         background-color: var(--button-bg);
         &:hover {
             border: 1px solid var(--border-color-hover);
