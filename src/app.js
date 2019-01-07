@@ -1,23 +1,11 @@
 import Vue from 'vue'
 import Button from './button.vue'
 import ButtonGroup from './g-button-group'
+import gInput from './g-input'
 
 Vue.component('g-button',Button)
 Vue.component('g-button-group',ButtonGroup)
-
-// const Constructor = Vue.extend(Button)
-// const button = new Constructor({
-//   propsData: {
-//     icon: 'settings'
-//   }
-// })
-// button.$mount('#app')
-
-// const vm = new Constructor({
-//   propsData: {
-//     icon: 'settings'
-//   }
-// })
+Vue.component('g-input',gInput)
 
 
 new Vue({

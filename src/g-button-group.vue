@@ -19,13 +19,14 @@
 </script>
 
 <style scoped lang="scss">
+    $margin:1px;
     .group{
         display: inline-flex;
         vertical-align: middle;
         .g-button{
             border-radius: 0;
             &:not(:first-child){
-                margin-left: -1px;
+                margin-left: -($margin);
             }
             &:first-child{
                 border-top-left-radius: var(--border-radius);

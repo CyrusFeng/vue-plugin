@@ -1,8 +1,8 @@
 {
-  "name": "vue-plugin",
-  "version": "0.0.1",
+  "name": "vue-plugin-2019",
+  "version": "0.0.8",
   "description": "vue插件",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
@@ -25,7 +25,8 @@
   "dependencies": {
     "button": "^1.1.1",
     "vue": "^2.5.21",
-    "vue-hot-reload-api": "^2.3.1"
+    "vue-hot-reload-api": "^2.3.1",
+    "wrappy": "^1.0.2"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.3.1",
