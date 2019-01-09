@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
         :root{
             --button-height:32px;
             --font-size:14px;
@@ -21,20 +25,42 @@
 </head>
 <body>
 <div id="app">
-    <g-button icon-name="setting" icon-position="left" :loading="true">按钮</g-button>
-    <g-button icon-name="setting" icon-position="right" :loading="true">按钮</g-button>
-    <g-button-group>
-        <g-button icon-name="setting" icon-position="left" :loading="false">上一页</g-button>
-        <g-button icon-name="setting" icon-position="left" :loading="false">按钮</g-button>
-        <g-button icon-name="setting" icon-position="right" :loading="false">下一页</g-button>
-    </g-button-group>
-    <!--<div id="aa"></div>-->
+    <!--<g-button icon-name="setting" icon-position="left" :loading="true">按钮</g-button>-->
+    <!--<g-button icon-name="setting" icon-position="right" :loading="true">按钮</g-button>-->
+    <!--<g-button-group>-->
+        <!--<g-button icon-name="setting" icon-position="left" :loading="false">上一页</g-button>-->
+        <!--<g-button icon-name="setting" icon-position="left" :loading="false">按钮</g-button>-->
+        <!--<g-button icon-name="setting" icon-position="right" :loading="false">下一页</g-button>-->
+    <!--</g-button-group>-->
 
-    <g-input disabled></g-input>
-    <g-input readonly></g-input>
-    <g-input error="hahah"></g-input>
-    <g-input v-model="message"></g-input>
-    <p @click="message+=2">{{message}}</p>
+    <!--<g-input disabled></g-input>-->
+    <!--<g-input readonly></g-input>-->
+    <!--<g-input error="hahah"></g-input>-->
+    <!--<g-input v-model="message"></g-input>-->
+    <!--<p @click="message+=2">{{message}}</p>-->
+    <!--<br>-->
+    <g-row gutter="10" align="right">
+        <g-col span="12" :ipad="{'span':24}">1</g-col>
+        <g-col span="10" offset="2" :ipad="{'span':18,'offset':6}">2</g-col>
+    </g-row>
+    <g-row gutter="10" align="right">
+        <g-col span="12">1</g-col>
+        <g-col span="12">2</g-col>
+    </g-row>
+    <g-row gutter="10" align="right">
+        <g-col span="12" :ipad="{'span':24}">
+            <g-row gutter="10" align="right">
+                <g-col span="12">1</g-col>
+                <g-col span="12">2</g-col>
+            </g-row>
+        </g-col>
+        <g-col span="10" offset="2" :ipad="{'span':18,'offset':6}">
+            <g-row gutter="10" align="right">
+                <g-col span="12">1</g-col>
+                <g-col span="12">2</g-col>
+            </g-row>
+        </g-col>
+    </g-row>
 
 </div>
 <script src="./src/app.js"></script>

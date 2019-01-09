@@ -2,10 +2,14 @@ import Vue from 'vue'
 import Button from './button.vue'
 import ButtonGroup from './g-button-group'
 import gInput from './g-input'
+import gRow from './g-row'
+import gCol from './g-col'
 
 Vue.component('g-button',Button)
 Vue.component('g-button-group',ButtonGroup)
 Vue.component('g-input',gInput)
+Vue.component('g-row',gRow)
+Vue.component('g-col',gCol)
 
 
 new Vue({
