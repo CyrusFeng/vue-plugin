@@ -8,6 +8,9 @@
             margin: 0;
             padding: 0;
         }
+        html,body{
+            height: 100%;
+        }
         :root{
             --button-height:32px;
             --font-size:14px;
@@ -39,29 +42,31 @@
     <!--<g-input v-model="message"></g-input>-->
     <!--<p @click="message+=2">{{message}}</p>-->
     <!--<br>-->
-    <g-row gutter="10" align="right">
-        <g-col span="12" :ipad="{'span':24}">1</g-col>
-        <g-col span="10" offset="2" :ipad="{'span':18,'offset':6}">2</g-col>
-    </g-row>
-    <g-row gutter="10" align="right">
-        <g-col span="12">1</g-col>
-        <g-col span="12">2</g-col>
-    </g-row>
-    <g-row gutter="10" align="right">
-        <g-col span="12" :ipad="{'span':24}">
-            <g-row gutter="10" align="right">
-                <g-col span="12">1</g-col>
-                <g-col span="12">2</g-col>
-            </g-row>
-        </g-col>
-        <g-col span="10" offset="2" :ipad="{'span':18,'offset':6}">
-            <g-row gutter="10" align="right">
-                <g-col span="12">1</g-col>
-                <g-col span="12">2</g-col>
-            </g-row>
-        </g-col>
-    </g-row>
-
+    <!--<g-row gutter="10" align="right">-->
+        <!--<g-col span="12" :ipad="{'span':24}">1</g-col>-->
+        <!--&lt;!&ndash;<g-col span="10" offset="2" :ipad="{'span':18,'offset':6}">2</g-col>&ndash;&gt;-->
+    <!--</g-row>-->
+    <!--<g-row gutter="10" align="right">-->
+        <!--<g-col span="12">1</g-col>-->
+        <!--<g-col span="12">2</g-col>-->
+    <!--</g-row>-->
+    <!--<g-row gutter="10" align="right">-->
+        <!--<g-col span="12" :ipad="{'span':24}">-->
+            <!--<g-row gutter="10" align="right">-->
+                <!--<g-col span="12">1</g-col>-->
+                <!--<g-col span="12">2</g-col>-->
+            <!--</g-row>-->
+        <!--</g-col>-->
+        <!--<g-col span="10" offset="2" :ipad="{'span':18,'offset':6}">-->
+            <!--<g-row gutter="10" align="right">-->
+                <!--<g-col span="12">1</g-col>-->
+                <!--<g-col span="12">2</g-col>-->
+            <!--</g-row>-->
+        <!--</g-col>-->
+    <!--</g-row>-->
+    <button @click="showToast('top')">点击</button>
+    <button @click="showToast('middle')">点击</button>
+    <button @click="showToast('bottom')">点击</button>
 </div>
 <script src="./src/app.js"></script>
 <script src="//at.alicdn.com/t/font_987168_4c13na7a1o.js"></script>

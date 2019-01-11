@@ -5,17 +5,36 @@ import gInput from './g-input'
 import gRow from './g-row'
 import gCol from './g-col'
 
+import toastPlugin from './toastPlugin'
+
 Vue.component('g-button',Button)
 Vue.component('g-button-group',ButtonGroup)
 Vue.component('g-input',gInput)
 Vue.component('g-row',gRow)
 Vue.component('g-col',gCol)
 
+Vue.use(toastPlugin)
 
 new Vue({
   el:'#app',
   data:{
     message:'hi vue',
+  },
+  methods:{
+    showToast(position){
+      this.$toast('<i>哈哈</i>',{
+        autoClose:false,
+        autoCloseDelay:5,
+        position:position,
+        // closeBtn:{
+        //   text:'哈哈',
+        //   callback:()=>{
+        //     console.log('关闭toast')
+        //   }
+        // },
+        enableHtml:true
+      })
+    }
   }
 })
 

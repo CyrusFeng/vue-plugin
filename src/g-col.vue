@@ -19,7 +19,7 @@
     name: "col",
     data(){
       return{
-        gutter:0
+        gutter:111
       }
     },
     props:{
