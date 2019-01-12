@@ -67,6 +67,17 @@
     <button @click="showToast('top')">点击</button>
     <button @click="showToast('middle')">点击</button>
     <button @click="showToast('bottom')">点击</button>
+
+    <g-tabs :selected.sync="selectedTab">
+        <g-tabs-nav>
+            <g-tabs-nav-item name="tab1">体育</g-tabs-nav-item>
+            <g-tabs-nav-item name="tab2">财经</g-tabs-nav-item>
+        </g-tabs-nav>
+        <g-tabs-content>
+            <g-tabs-content-item name="tab1">体育文章</g-tabs-content-item>
+            <g-tabs-content-item name="tab2">财经文章</g-tabs-content-item>
+        </g-tabs-content>
+    </g-tabs>
 </div>
 <script src="./src/app.js"></script>
 <script src="//at.alicdn.com/t/font_987168_4c13na7a1o.js"></script>

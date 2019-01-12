@@ -4,6 +4,11 @@ import ButtonGroup from './g-button-group'
 import gInput from './g-input'
 import gRow from './g-row'
 import gCol from './g-col'
+import Tabs from './g-tabs'
+import TabsNav from './g-tabs-nav'
+import TabsNavItem from './g-tabs-nav-item'
+import TabsContent from './g-tabs-content'
+import TabsContentItem from './g-tabs-content-item'
 
 import toastPlugin from './toastPlugin'
 
@@ -12,6 +17,11 @@ Vue.component('g-button-group',ButtonGroup)
 Vue.component('g-input',gInput)
 Vue.component('g-row',gRow)
 Vue.component('g-col',gCol)
+Vue.component('g-tabs',Tabs)
+Vue.component('g-tabs-nav',TabsNav)
+Vue.component('g-tabs-nav-item',TabsNavItem)
+Vue.component('g-tabs-content',TabsContent)
+Vue.component('g-tabs-content-item',TabsContentItem)
 
 Vue.use(toastPlugin)
 
@@ -19,6 +29,7 @@ new Vue({
   el:'#app',
   data:{
     message:'hi vue',
+    selectedTab:'tab1'
   },
   methods:{
     showToast(position){
