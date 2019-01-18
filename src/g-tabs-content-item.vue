@@ -27,9 +27,11 @@
       }
     },
     mounted() {
-      this.eventBus.$on('changeTab', (val) => {
-        this.active = val === this.name;
-      })
+      if (this.eventBus){
+        this.eventBus.$on('changeTab', (val) => {
+          this.active = val === this.name;
+        })
+      }
     },
     methods: {
       emitEvent() {

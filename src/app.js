@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Button from './button.vue'
 import ButtonGroup from './g-button-group'
+import Icon from './g-icon'
 import gInput from './g-input'
 import gRow from './g-row'
 import gCol from './g-col'
@@ -9,11 +10,13 @@ import TabsNav from './g-tabs-nav'
 import TabsNavItem from './g-tabs-nav-item'
 import TabsContent from './g-tabs-content'
 import TabsContentItem from './g-tabs-content-item'
+import Popover from './g-popover'
 
 import toastPlugin from './toastPlugin'
 
 Vue.component('g-button',Button)
 Vue.component('g-button-group',ButtonGroup)
+Vue.component('g-icon',Icon)
 Vue.component('g-input',gInput)
 Vue.component('g-row',gRow)
 Vue.component('g-col',gCol)
@@ -22,6 +25,7 @@ Vue.component('g-tabs-nav',TabsNav)
 Vue.component('g-tabs-nav-item',TabsNavItem)
 Vue.component('g-tabs-content',TabsContent)
 Vue.component('g-tabs-content-item',TabsContentItem)
+Vue.component('g-popover',Popover)
 
 Vue.use(toastPlugin)
 

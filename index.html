@@ -8,14 +8,16 @@
             margin: 0;
             padding: 0;
         }
-        html,body{
+
+        html, body {
             height: 100%;
         }
-        :root{
-            --button-height:32px;
-            --font-size:14px;
-            --button-bg:#fff;
-            --button-active-bg:#eee;
+
+        :root {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: #fff;
+            --button-active-bg: #eee;
             --border-color: #999;
             /*--border-color-hover: red;*/
             --border-color-hover: #666;
@@ -31,9 +33,9 @@
     <!--<g-button icon-name="setting" icon-position="left" :loading="true">按钮</g-button>-->
     <!--<g-button icon-name="setting" icon-position="right" :loading="true">按钮</g-button>-->
     <!--<g-button-group>-->
-        <!--<g-button icon-name="setting" icon-position="left" :loading="false">上一页</g-button>-->
-        <!--<g-button icon-name="setting" icon-position="left" :loading="false">按钮</g-button>-->
-        <!--<g-button icon-name="setting" icon-position="right" :loading="false">下一页</g-button>-->
+    <!--<g-button icon-name="setting" icon-position="left" :loading="false">上一页</g-button>-->
+    <!--<g-button icon-name="setting" icon-position="left" :loading="false">按钮</g-button>-->
+    <!--<g-button icon-name="setting" icon-position="right" :loading="false">下一页</g-button>-->
     <!--</g-button-group>-->
 
     <!--<g-input disabled></g-input>-->
@@ -43,41 +45,60 @@
     <!--<p @click="message+=2">{{message}}</p>-->
     <!--<br>-->
     <!--<g-row gutter="10" align="right">-->
-        <!--<g-col span="12" :ipad="{'span':24}">1</g-col>-->
-        <!--&lt;!&ndash;<g-col span="10" offset="2" :ipad="{'span':18,'offset':6}">2</g-col>&ndash;&gt;-->
+    <!--<g-col span="12" :ipad="{'span':24}">1</g-col>-->
+    <!--&lt;!&ndash;<g-col span="10" offset="2" :ipad="{'span':18,'offset':6}">2</g-col>&ndash;&gt;-->
     <!--</g-row>-->
     <!--<g-row gutter="10" align="right">-->
-        <!--<g-col span="12">1</g-col>-->
-        <!--<g-col span="12">2</g-col>-->
+    <!--<g-col span="12">1</g-col>-->
+    <!--<g-col span="12">2</g-col>-->
     <!--</g-row>-->
     <!--<g-row gutter="10" align="right">-->
-        <!--<g-col span="12" :ipad="{'span':24}">-->
-            <!--<g-row gutter="10" align="right">-->
-                <!--<g-col span="12">1</g-col>-->
-                <!--<g-col span="12">2</g-col>-->
-            <!--</g-row>-->
-        <!--</g-col>-->
-        <!--<g-col span="10" offset="2" :ipad="{'span':18,'offset':6}">-->
-            <!--<g-row gutter="10" align="right">-->
-                <!--<g-col span="12">1</g-col>-->
-                <!--<g-col span="12">2</g-col>-->
-            <!--</g-row>-->
-        <!--</g-col>-->
+    <!--<g-col span="12" :ipad="{'span':24}">-->
+    <!--<g-row gutter="10" align="right">-->
+    <!--<g-col span="12">1</g-col>-->
+    <!--<g-col span="12">2</g-col>-->
     <!--</g-row>-->
-    <button @click="showToast('top')">点击</button>
-    <button @click="showToast('middle')">点击</button>
-    <button @click="showToast('bottom')">点击</button>
+    <!--</g-col>-->
+    <!--<g-col span="10" offset="2" :ipad="{'span':18,'offset':6}">-->
+    <!--<g-row gutter="10" align="right">-->
+    <!--<g-col span="12">1</g-col>-->
+    <!--<g-col span="12">2</g-col>-->
+    <!--</g-row>-->
+    <!--</g-col>-->
+    <!--</g-row>-->
+    <!--<button @click="showToast('top')">点击</button>-->
+    <!--<button @click="showToast('middle')">点击</button>-->
+    <!--<button @click="showToast('bottom')">点击</button>-->
 
-    <g-tabs :selected.sync="selectedTab">
-        <g-tabs-nav>
-            <g-tabs-nav-item name="tab1">体育</g-tabs-nav-item>
-            <g-tabs-nav-item name="tab2">财经</g-tabs-nav-item>
-        </g-tabs-nav>
-        <g-tabs-content>
-            <g-tabs-content-item name="tab1">体育文章</g-tabs-content-item>
-            <g-tabs-content-item name="tab2">财经文章</g-tabs-content-item>
-        </g-tabs-content>
-    </g-tabs>
+
+    <!--<g-tabs :selected.sync="selectedTab">-->
+
+        <!--<g-tabs-nav>-->
+            <!--<g-tabs-nav-item name="tab1">-->
+                <!--<g-icon icon-name="setting"></g-icon>-->
+                <!--体育-->
+            <!--</g-tabs-nav-item>-->
+            <!--<g-tabs-nav-item name="tab2">财经</g-tabs-nav-item>-->
+            <!--<div class="icon" slot="extra">我是图标</div>-->
+        <!--</g-tabs-nav>-->
+        <!--<g-tabs-content>-->
+            <!--<g-tabs-content-item name="tab1">体育文章</g-tabs-content-item>-->
+            <!--<g-tabs-content-item name="tab2">财经文章</g-tabs-content-item>-->
+        <!--</g-tabs-content>-->
+    <!--</g-tabs>-->
+
+    <g-popover>
+        <template slot="pop">
+            <div>我是弹出层</div>
+        </template>
+        <span>点我弹出/隐藏</span>
+    </g-popover>
+    <g-popover>
+        <template slot="pop">
+            <div>我是弹出层</div>
+        </template>
+        <span>点我弹出/隐藏</span>
+    </g-popover>
 </div>
 <script src="./src/app.js"></script>
 <script src="//at.alicdn.com/t/font_987168_4c13na7a1o.js"></script>

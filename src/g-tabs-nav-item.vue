@@ -7,40 +7,57 @@
 <script>
   export default {
     name: "g-tab-nav-item",
-    inject:['eventBus'],
+    inject: ['eventBus'],
     data() {
       return {
         active: false
       }
     },
-    props:{
-      name:{
-        type:String,
-        required:true
+    props: {
+      name: {
+        type: String,
+        required: true
       }
     },
-    computed:{
-      activeClass(){
+    computed: {
+      activeClass() {
         return {
-          active:this.active
+          active: this.active
         }
       }
     },
-    mounted(){
-      this.eventBus.$on('changeTab',(val)=>{
-        this.active = val === this.name;
-      })
+    mounted() {
+      if (this.eventBus){
+        this.eventBus.$on('changeTab', (val, vm) => {
+          this.active = val === this.name;
+        })
+      }
     },
-    methods:{
-      emitEvent(){
-        this.eventBus.$emit('changeTab',this.name)
+    methods: {
+      emitEvent() {
+        this.eventBus.$emit('changeTab', this.name,this)
       }
     }
   }
 </script>
 
-<style scoped>
-    .active{
-        /*background-color: blue;*/
+<style scoped lang="scss">
+    $blue: blue;
+    $disabled-text-color: grey;
+    .nav-item {
+        flex-shrink: 0;
+        padding: 0 1em;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        &.active {
+            color: $blue;
+            font-weight: bold;
+        }
+        &.disabled {
+            color: $disabled-text-color;
+            cursor: not-allowed;
+        }
     }
 </style>
