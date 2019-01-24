@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7fae7533-50aa-4153-b088-91ff6285b0c8" name="Default" comment="将g-button改为单文件组件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/g-popover.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/g-popover.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -42,8 +41,8 @@
       <file leaf-file-name="g-popover.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/g-popover.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+            <state relative-caret-position="265">
+              <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -140,7 +139,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="823" />
+    <option name="x" value="471" />
     <option name="y" value="29" />
     <option name="width" value="1318" />
     <option name="height" value="793" />
@@ -225,7 +224,7 @@
       <workItem from="1546864514283" duration="8285000" />
       <workItem from="1546939221204" duration="44148000" />
       <workItem from="1547804129880" duration="8999000" />
-      <workItem from="1548344533749" duration="1177000" />
+      <workItem from="1548344533749" duration="4651000" />
     </task>
     <task id="LOCAL-00001" summary="添加了gitignore、npm i vue">
       <created>1545701843219</created>
@@ -252,10 +251,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105923000" />
+    <option name="totallyTimeSpent" value="109397000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="823" y="29" width="1318" height="793" extended-state="0" />
+    <frame x="471" y="29" width="1318" height="793" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18812644" />
@@ -288,6 +287,11 @@
     <MESSAGE value="完成按钮样式" />
     <MESSAGE value="将g-button改为单文件组件" />
     <option name="LAST_COMMIT_MESSAGE" value="将g-button改为单文件组件" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.travis.yml">
@@ -621,8 +625,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/g-popover.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+        <state relative-caret-position="265">
+          <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
         </state>
       </provider>
     </entry>

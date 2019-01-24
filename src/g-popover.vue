@@ -22,54 +22,37 @@
     },
     methods:{
       addListener(e){
-        console.log('点击了组件')
         if (this.$refs.triggerWrap.contains(e.target)){
-
-          this.showPop = !this.showPop
-
           if(this.showPop){
-
-            this.$nextTick(()=>{
-              document.body.appendChild(this.$refs.popWrapper)
-
-              // document.addEventListener('click',this.hiddenPop,{
-              //   once : true
-              // })
-              document.addEventListener('click',this.hiddenPop)
-
-              //将弹出层放在body中，以防用户在组件外使用overflow：hidden时弹出层被遮盖
-
-
-              let { width,height,top,left} = this.$refs.triggerWrap.getBoundingClientRect()
-
-              this.$refs.popWrapper.style.left = left+ window.scrollX+'px'
-              this.$refs.popWrapper.style.top = top+ window.scrollY +'px'
-
-              //document.removeEventListener('click',this.hiddenPop)
-            })
+            this.close()
           }else{
-            console.log('点击按钮隐藏')
+            this.open()
           }
-        }else{
-          console.log('没点击按钮')
         }
-
       },
       hiddenPop(e){
-        if (this.$refs.popWrapper.contains(e.target)) {
-            console.log('点击了pop')
+        if (this.$refs.triggerWrap.contains(e.target) || this.$refs.popWrapper.contains(e.target)) {
+            console.log('什么都不做')
         }else{
-          console.log('没点击弹出层')
-          this.showPop = false
-          console.log('document隐藏')
-          document.removeEventListener('click',this.hiddenPop)
-          console.log('监听器消失')
+          this.close()
         }
-
-
       },
-      xxx(){
-        console.log('haha')
+      close(){
+        this.showPop = false
+        document.removeEventListener('click',this.hiddenPop)
+        console.log('关闭，监听器消失')
+      },
+      open(){
+        this.showPop = true
+        document.addEventListener('click',this.hiddenPop)
+
+        this.$nextTick(()=>{
+          document.body.appendChild(this.$refs.popWrapper)
+          //将弹出层放在body中，以防用户在组件外使用overflow：hidden时弹出层被遮盖
+          let { width,height,top,left} = this.$refs.triggerWrap.getBoundingClientRect()
+          this.$refs.popWrapper.style.left = left+ window.scrollX+'px'
+          this.$refs.popWrapper.style.top = top+ window.scrollY +'px'
+        })
       }
     }
   }
