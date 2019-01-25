@@ -1,6 +1,6 @@
 <template>
-    <div class="wrapper" @click="addListener($event)" ref="wrapper">
-        <div class="pop-wrapper" ref="popWrapper" v-if="showPop">
+    <div class="wrapper" ref="wrapper">
+        <div class="pop-wrapper" :class="[`position-${this.position}`]" ref="popWrapper" v-if="showPop">
             <slot name="pop"></slot>
         </div>
         <span ref="triggerWrap" class="btn">
@@ -12,46 +12,91 @@
 <script>
   export default {
     name: "g-popover",
-    created(){
-      this.showPop = false
+    mounted(){
+      console.log(this.eventType)
+      if (this.eventType === 'click'){
+        this.$refs.wrapper.addEventListener(this.eventType,this.addListener)
+      }else if(this.eventType === 'hover'){
+
+        this.$refs.wrapper.addEventListener('mouseenter',this.open)
+        this.$refs.wrapper.addEventListener('mouseleave',this.close)
+      }
+
     },
-    data(){
+    data() {
       return {
-        showPop:false,
+        showPop: false
       }
     },
-    methods:{
-      addListener(e){
-        if (this.$refs.triggerWrap.contains(e.target)){
-          if(this.showPop){
+    props: {
+      position: {
+        default: "top",
+        validator(value) {
+          console.log(value)
+          return ['left', 'top', 'right', 'bottom'].indexOf(value) > -1
+        }
+      },
+      eventType:{
+        type:String,
+        default: "click",
+        validator(value) {
+          console.log(value)
+          return ['click', 'hover'].indexOf(value) > -1
+        }
+      }
+    },
+    methods: {
+      addListener(e) {
+        if (this.$refs.triggerWrap.contains(e.target)) {
+          if (this.showPop) {
             this.close()
-          }else{
+          } else {
             this.open()
           }
         }
       },
-      hiddenPop(e){
+      hiddenPop(e) {
         if (this.$refs.triggerWrap.contains(e.target) || this.$refs.popWrapper.contains(e.target)) {
-            console.log('什么都不做')
-        }else{
+          console.log('什么都不做')
+        } else {
           this.close()
         }
       },
-      close(){
+      close() {
         this.showPop = false
-        document.removeEventListener('click',this.hiddenPop)
+        document.removeEventListener('click', this.hiddenPop)
         console.log('关闭，监听器消失')
       },
-      open(){
+      open() {
         this.showPop = true
-        document.addEventListener('click',this.hiddenPop)
+        document.addEventListener('click', this.hiddenPop)
 
-        this.$nextTick(()=>{
+        this.$nextTick(() => {
           document.body.appendChild(this.$refs.popWrapper)
           //将弹出层放在body中，以防用户在组件外使用overflow：hidden时弹出层被遮盖
-          let { width,height,top,left} = this.$refs.triggerWrap.getBoundingClientRect()
-          this.$refs.popWrapper.style.left = left+ window.scrollX+'px'
-          this.$refs.popWrapper.style.top = top+ window.scrollY +'px'
+
+          let { width, height, top, left } = this.$refs.triggerWrap.getBoundingClientRect()
+          let popHeight = this.$refs.popWrapper.getBoundingClientRect().height
+          let positionTab = {
+            top: {
+              'top': top + window.scrollY,
+              'left': left + window.scrollX
+            },
+            bottom: {
+              'top': top + window.scrollY + height,
+              'left': left + window.scrollX
+            },
+            right: {
+              'top': top + window.scrollY + (height - popHeight)/2,
+              'left': left + window.scrollX + width
+            },
+            left: {
+              'top': top + window.scrollY + (height - popHeight)/2,
+              'left': left + window.scrollX
+            }
+          }
+          this.$refs.popWrapper.style.left = positionTab[this.position].left + 'px'
+          this.$refs.popWrapper.style.top = positionTab[this.position].top + 'px'
         })
       }
     }
@@ -59,22 +104,107 @@
 </script>
 
 <style scoped lang="scss">
-    .wrapper{
+    .wrapper {
         padding: 20px;
-        margin: 100px;
+        margin: 50px;
+
         display: inline-block;
         vertical-align: middle;
         position: relative;
         border: 1px solid red;
+
+        .position-left {
+            //transform: translateX(-100%);
+        }
+        .position-right {
+            //transform: translateY(-100%);
+        }
     }
-    .pop-wrapper{
+
+    .pop-wrapper {
         position: absolute;
         /*bottom: 100%;*/
         /*left: 0;*/
-        transform: translateY(-100%);
+        /*transform: translateY(-100%);*/
         border: 1px solid red;
+        &::after, &::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            position: absolute;
+        }
+        &.position-top {
+            transform: translateY(-100%);
+            margin-top: -10px;
+            &::after, &::before {
+                left: 0;
+            }
+            &::before {
+                border-top-color: black;
+                top: 100%;
+            }
+            &::after {
+                border-top-color: white;
+                top: calc(100% - 1px);
+            }
+        }
+        &.position-bottom {
+            /*transform: translateY(100%);*/
+            margin-top: 10px;
+            &::before, &::after {
+                left: 10px;
+            }
+            &::before {
+                border-top: none;
+                border-bottom-color: black;
+                bottom: 100%;
+            }
+            &::after {
+                border-top: none;
+                border-bottom-color: white;
+                bottom: calc(100% - 1px);
+            }
+        }
+        &.position-left {
+            transform: translateX(-100%);
+            margin-left: -10px;
+            &::before, &::after {
+                transform: translateY(-50%);
+                top: 50%;
+            }
+            &::before {
+                border-left-color: black;
+                border-right: none;
+                left: 100%;
+            }
+            &::after {
+                border-left-color: white;
+                border-right: none;
+                left: calc(100% - 1px);
+            }
+        }
+        &.position-right {
+            margin-left: 10px;
+            &::before, &::after {
+                transform: translateY(-50%);
+                top: 50%;
+            }
+            &::before {
+                border-right-color: black;
+                border-left: none;
+                right: 100%;
+            }
+            &::after {
+                border-right-color: white;
+                border-left: none;
+                right: calc(100% - 1px);
+            }
+        }
     }
-    .btn{
+
+    .btn {
         border: 1px solid red;
     }
 
