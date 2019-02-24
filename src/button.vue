@@ -1,10 +1,8 @@
 <template>
     <button class="g-button" :class="`icon-${iconPosition?iconPosition:undefined}`" @click="changeLoading">
-        <!--<button class="g-button" :class="{[`icon-${iconPosition}`]:true}">-->
-        <!--<button class="g-button" :class="iconPosition">-->
         <g-icon v-if="iconName && !loading" :iconName="iconName"></g-icon>
         <g-icon v-if="loading" class="loading" iconName="loading"></g-icon>
-        <div class="content">
+        <div class="button-content">
             <slot></slot>
         </div>
     </button>
@@ -47,6 +45,15 @@
 </script>
 
 <style scoped lang="scss">
+    $button-height: 32px;
+    $font-size: 14px;
+    $button-bg: #fff;
+    $button-active-bg: #eee;
+    $border-color: #999;
+    $border-color-hover: #666;
+    $border-radius: 4px;
+    $color: #333;
+    $border-width: 1px;
     @keyframes spin {
         0% {
             transform: rotate(0deg);
@@ -61,17 +68,17 @@
         justify-content: center;
         align-items: center;
         vertical-align: middle;
-        height: var(--button-height);
-        font-size: var(--font-size);
+        height: $button-height;
+        font-size: $font-size;
         padding: 0 1em;
-        border-radius: var(--border-radius);
-        border: var(--border-width) solid var(--border-color);
-        background-color: var(--button-bg);
+        border-radius: $border-radius;
+        border: $border-width solid $border-color;
+        background-color: $button-bg;
         &:hover {
-            border: 1px solid var(--border-color-hover);
+            border: 1px solid $border-color-hover;
         }
         &:active {
-            background-color: var(--button-active-bg);
+            background-color: $button-active-bg;
         }
         &:focus {
             outline: none;
@@ -80,7 +87,7 @@
         .icon {
             order: 1;
         }
-        .content {
+        .button-content {
             order: 2;
         }
 
@@ -88,7 +95,7 @@
             .icon {
                 order: 2;
             }
-            .content {
+            .button-content {
                 order: 1;
             }
         }

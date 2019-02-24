@@ -91,7 +91,7 @@
         <template slot="pop">
             <div>我是弹出层我是弹出层我是弹出层我是弹出层我是弹出层我是弹出层</div>
         </template>
-        <span>点我弹出/隐藏</span>
+        <g-button icon-name="setting" icon-position="left" :loading="true">按钮</g-button>
     </g-popover>
     <g-popover>
         <template slot="pop">
@@ -106,8 +106,10 @@
         <span>点我弹出/隐藏</span>
     </g-popover>
     <g-popover position="right">
-        <template slot="pop">
+        <template slot="pop" slot-scope="{close}">
             <div>我是弹出层我是弹出层我是弹出层我是弹出层我是弹出层我是弹出层</div>
+            <a href="">腾讯新闻</a>
+            <button @click="close">关闭</button>
         </template>
         <span>点我弹出/隐藏</span>
     </g-popover>

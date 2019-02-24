@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper" ref="wrapper">
         <div class="pop-wrapper" :class="[`position-${this.position}`]" ref="popWrapper" v-if="showPop">
-            <slot name="pop"></slot>
+            <slot name="pop" :close="close"></slot>
         </div>
         <span ref="triggerWrap" class="btn">
             <slot></slot>
@@ -21,18 +21,22 @@
         this.$refs.wrapper.addEventListener('mouseenter',this.open)
         this.$refs.wrapper.addEventListener('mouseleave',this.close)
       }
-
     },
     data() {
       return {
         showPop: false
       }
     },
+    // watch:{
+    //   showPop:function (newx,old) {
+    //     console.log(newx)
+    //     console.log(old)
+    //   },
+    // },
     props: {
       position: {
         default: "top",
         validator(value) {
-          console.log(value)
           return ['left', 'top', 'right', 'bottom'].indexOf(value) > -1
         }
       },
@@ -40,7 +44,6 @@
         type:String,
         default: "click",
         validator(value) {
-          console.log(value)
           return ['click', 'hover'].indexOf(value) > -1
         }
       }
@@ -142,10 +145,12 @@
                 left: 0;
             }
             &::before {
+                border-bottom: none;
                 border-top-color: black;
                 top: 100%;
             }
             &::after {
+                border-bottom: none;
                 border-top-color: white;
                 top: calc(100% - 1px);
             }
@@ -158,11 +163,13 @@
             }
             &::before {
                 border-top: none;
+
                 border-bottom-color: black;
                 bottom: 100%;
             }
             &::after {
                 border-top: none;
+
                 border-bottom-color: white;
                 bottom: calc(100% - 1px);
             }
@@ -205,6 +212,7 @@
     }
 
     .btn {
+        display: inline-block;
         border: 1px solid red;
     }
 
