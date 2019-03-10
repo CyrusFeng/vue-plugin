@@ -19,7 +19,7 @@
       return{
         code:`<gButton>默认按钮</gButton>
         <gButton icon-name="setting" icon-position="left" :loading="true">按钮</gButton>
-        <gButton icon-name="setting" icon-position="right" :loading="true">按钮</gButton>`
+        <gButton icon-name="setting" icon-position="right" :loading="true">按钮</gButton>`.replace(/^\t+| +/g, '').trim()
       }
     }
   }
