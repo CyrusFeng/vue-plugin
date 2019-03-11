@@ -68,6 +68,7 @@
         // console.log(this.selectedData)
         let copy = JSON.parse(JSON.stringify(this.selectedData))
         copy[this.level] = item
+        copy.splice(this.level+1)
         this.$emit('update:selected',copy)
 
         console.log(this.level)
