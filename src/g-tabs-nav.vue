@@ -14,10 +14,12 @@
     inject:['eventBus'],
     mounted(){
       this.eventBus.$on('changeTab',(val,vm)=>{
-        console.log(vm.$el.getBoundingClientRect())
-        let {width,left} = vm.$el.getBoundingClientRect()
-        this.$refs.line.style.width = width+'px'
-        this.$refs.line.style.left = left + 'px'
+        if(vm){
+          console.log(vm.$el.getBoundingClientRect())
+          let {width,left} = vm.$el.getBoundingClientRect()
+          this.$refs.line.style.width = width+'px'
+          this.$refs.line.style.left = left + 'px'
+        }
       })
     }
   }

@@ -6,8 +6,9 @@
         <!--<div class="items-wrap" v-if="popoverVisible">-->
             <!--<items :source="item" v-for="(item,index) in source" :key="index"></items>-->
         <!--</div>-->
-        <div class="items-wrap" v-if="popoverVisible">
-            <items :source="source"></items>
+        <div class="popover items-wrap" v-if="popoverVisible">
+            <items :source="source" :selectedData="selectedData" :level="level"
+                   @update:selected="transmit"></items>
         </div>
     </div>
 
@@ -16,69 +17,7 @@
 <script>
   // import source from './region'
   // console.log(source)
-  var data = [
-    {
-      name: '北京',
-      children: [
-        { name: '东城' },
-        { name: '西城' },
-        { name: '朝阳' }
-      ]
-    },
-    {
-      name: '河北',
-      children: [
-        { name: '廊坊' },
-        { name: '保定' },
-        {
-          name: '石家庄',
-          children: [
-            {
-              name: '石家庄1区',
-              children: [
-                { name: '石家庄1区1' },
-                { name: '石家庄1区2' }
-              ]
-            },
-            { name: '石家庄2区' },
-            { name: '石家庄3区' },
-            {
-              name: '石家庄4区',
-              children: [
-                { name: '石家庄4区1' },
-                { name: '石家庄4区2' }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      name: '浙江',
-      children: [
-        {
-          name: '杭州',
-          children: [
-            {
-              name: '阿里',
-              children: [
-                { name: '优酷' },
-                { name: '饿了么' }
-              ]
-            },
-            {
-              name: '海康威视',
-              children: [
-                { name: '摄像头' },
-                { name: '监控器' }
-              ]
-            },
-          ]
-        },
-        { name: '金华'}
-      ]
-    }
-  ]
+
 
   import items from './cascader-items'
 
@@ -87,10 +26,24 @@
     components: {
       items
     },
+    props:{
+      source:{
+        type:Array
+      },
+      selectedData:{
+        type:Array
+      }
+    },
     data() {
       return {
-        source: data,
-        popoverVisible: false
+        popoverVisible: false,
+        level:0
+      }
+    },
+    methods:{
+      transmit(newSelectedData){
+        console.log(newSelectedData);
+        this.$emit('update:selected',newSelectedData)
       }
     }
   }
@@ -98,11 +51,21 @@
 </script>
 
 <style scoped lang="scss">
+    $cascader-height:20px;
+    $cascader-width:100px;
     .cascader-wrap {
+        position: relative;
+
         .trigger-wrap {
-            height: 20px;
-            width: 100px;
+            height: $cascader-height;
+            width: $cascader-width;
             border: 1px solid #ccc;
+        }
+        .popover{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
         }
     }
 </style>
