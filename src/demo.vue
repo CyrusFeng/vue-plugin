@@ -15,7 +15,7 @@
             </g-tabs-content>
         </g-tabs>
 
-        <p>{{selectedData}}</p>
+        <!--<p>{{selectedData}}</p>-->
         <g-cascader :source="source" :selectedData="selectedData"
                     @update:selected="changeMainDate"></g-cascader>
 

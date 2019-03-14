@@ -1,7 +1,7 @@
 <template>
     <div class="cascader-wrap">
         <div class="trigger-wrap" @click="popoverVisible = !popoverVisible">
-            <slot></slot>
+            {{result || '&nbsp;'}}
         </div>
         <!--<div class="items-wrap" v-if="popoverVisible">-->
             <!--<items :source="item" v-for="(item,index) in source" :key="index"></items>-->
@@ -40,6 +40,13 @@
         level:0
       }
     },
+    computed:{
+      result(){
+        return this.selectedData.map((item)=>{
+          return item.name
+        }).join('-')
+      }
+    },
     methods:{
       transmit(newSelectedData){
         console.log(newSelectedData);
@@ -51,14 +58,18 @@
 </script>
 
 <style scoped lang="scss">
-    $cascader-height:20px;
-    $cascader-width:100px;
+    $cascader-height:2em;
+    $cascader-width:500px;
     .cascader-wrap {
         position: relative;
 
         .trigger-wrap {
+            padding: 0 1em;
+            display: inline-flex;
+            justify-content: flex-start;
+            align-items: center;
             height: $cascader-height;
-            width: $cascader-width;
+            width: 30em;
             border: 1px solid #ccc;
         }
         .popover{
