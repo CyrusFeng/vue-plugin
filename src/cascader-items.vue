@@ -1,10 +1,4 @@
 <template>
-    <!--<div>-->
-    <!--<div class="parent">{{source.name}}</div>-->
-    <!--<div class="item-wrap">-->
-    <!--<items :source="item" v-for="(item,index) in source.children" :key="index"></items>-->
-    <!--</div>-->
-    <!--</div>-->
     <div class="wrap" ref="wrapper">
         <div class="left">
             {{level}}
@@ -15,7 +9,8 @@
             </p>
         </div>
         <div class="right" v-if="selectedData[level] && selectedData[level].children">
-            <items :source="selectedData[level].children" :selectedData="selectedData" @update:selected="subTransmit" :level="level+1"></items>
+            <items :source="selectedData[level].children" :selectedData="selectedData"
+                   @update:selectedData="subTransmit" :level="level+1"></items>
         </div>
     </div>
 </template>
@@ -69,13 +64,13 @@
         let copy = JSON.parse(JSON.stringify(this.selectedData))
         copy[this.level] = item
         copy.splice(this.level+1)
-        this.$emit('update:selected',copy)
+        this.$emit('update:selectedData',copy)
 
         console.log(this.level)
         console.log(copy)
       },
       subTransmit(newSelectedData){
-        this.$emit('update:selected',newSelectedData)
+        this.$emit('update:selectedData',newSelectedData)
       }
     },
     mounted() {

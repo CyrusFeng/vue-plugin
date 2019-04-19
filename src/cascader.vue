@@ -8,7 +8,7 @@
         <!--</div>-->
         <div class="popover items-wrap" v-if="popoverVisible">
             <items :source="source" :selectedData="selectedData" :level="level"
-                   @update:selected="transmit"></items>
+                   @update:selectedData="transmit"></items>
         </div>
     </div>
 
@@ -50,7 +50,7 @@
     methods:{
       transmit(newSelectedData){
         console.log(newSelectedData);
-        this.$emit('update:selected',newSelectedData)
+        this.$emit('update:selectedData',newSelectedData)
       }
     }
   }

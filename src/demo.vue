@@ -16,9 +16,32 @@
         </g-tabs>
 
         <!--<p>{{selectedData}}</p>-->
-        <g-cascader :source="source" :selectedData="selectedData"
-                    @update:selected="changeMainDate"></g-cascader>
+        <!--<g-cascader :source="source"-->
+                    <!--:selectedData="selectedData"-->
+                    <!--@update:selectedData="changeMainDate"></g-cascader>-->
+        <!--<g-cascader :source="source"-->
+                    <!--:selectedData="selectedData"-->
+                    <!--@update:selectedData="changeMainDate"></g-cascader>-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!--<g-cascader :source="source"-->
+                    <!--:selectedData.sync="selectedData"></g-cascader>-->
+        <!--<g-SHQparent :source="source" :selectedItemArr="selectedItemArr"-->
+                     <!--@update:selectedItemArr="val => this.selectedItemArr = val"></g-SHQparent>-->
 
+        <g-tree :source="source"
+                :selectedItemArr="selectedItemArr"
+                @update:selectedItemArr="val=>this.selectedItemArr = val"></g-tree>
     </div>
 
 </template>
@@ -63,6 +86,9 @@
   import Popover from './g-popover'
   import Cascader from './cascader'
 
+  import SHQparent from './SHQparent'
+  import Tree from './g-tree'
+
   import toastPlugin from './toastPlugin'
 
   Vue.component('g-button', Button)
@@ -78,6 +104,8 @@
   Vue.component('g-tabs-content-item', TabsContentItem)
   Vue.component('g-popover', Popover)
   Vue.component('g-cascader', Cascader)
+  Vue.component('g-SHQparent', SHQparent)
+  Vue.component('g-tree', Tree)
 
   Vue.use(toastPlugin)
 
@@ -151,7 +179,8 @@
       return {
         selectedTab:'tab1',
         source,
-        selectedData:[]
+        selectedData:[],
+        selectedItemArr:[]
       }
     },
     methods:{
